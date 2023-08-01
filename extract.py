@@ -1,3 +1,6 @@
+from bs4 import BeautifulSoup
+
+
 def extract_code(text):
     lines = text.split("\n")
     code = ""
@@ -14,3 +17,13 @@ def extract_code(text):
             code += l
             code += "\n"
     return code
+
+
+def remove_indent_spaces(html_content):
+    # Parse the HTML using BeautifulSoup
+    soup = BeautifulSoup(html_content, 'html.parser')
+
+    # Get the formatted HTML without indents and spaces
+    formatted_html = soup.prettify(formatter=None)
+
+    return formatted_html
