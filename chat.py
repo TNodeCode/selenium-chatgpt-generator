@@ -28,6 +28,6 @@ def chat_with_chatgpt(prompt, model=Models.GPT35):
     return reply, messages
 
 
-def let_chatgpt_generate_code(prompt):
-    reply, messages = chat_with_chatgpt(prompt)
+def let_chatgpt_generate_code(prompt, model=Models.GPT35):
+    reply, messages = chat_with_chatgpt(prompt, model=model)
     return extract_code(reply)
