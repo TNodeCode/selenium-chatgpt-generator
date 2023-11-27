@@ -92,6 +92,8 @@ def prepare_prompt(prompt, additional_prompt, lang, code, comment_style):
     prompt = prompt.replace("$LANG", lang)
     prompt = prompt.replace("$COMMENT_STYLE", comment_style)
     prompt += "\n" + additional_prompt
+    if lang == 'Java':
+        prompt += "Use the Selenide framework for the selectors.\n"
     prompt += "\nI need no explanations, only the code."
     prompt += "\n" + code
     return prompt

@@ -116,14 +116,16 @@ submit_button = st.button('Submit')
 if submit_button:
     html_code = remove_indent_spaces(html_code)
 
-    promt = handlers[selected_page_object_type](
+    prompt = handlers[selected_page_object_type](
         code=html_code,
         additional_prompt=additional_promt,
         lang=lang,
         comment_style=comment_styles[lang]
     )
+    st.markdown('##### Prompt')
+    st.code(prompt)
     st.info('Generating code ...')
-    generated_code = let_chatgpt_generate_code(prompt=promt)
+    generated_code = let_chatgpt_generate_code(prompt=prompt)
     st.code(
         generated_code,
         language=lang.lower(),
